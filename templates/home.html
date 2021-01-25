@@ -1,7 +1,21 @@
-<h1>投稿リスト</h1>
+{% extends 'base.html' %}
+{% load static %}
 
+{% block customcss %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+{% endblock %}
+
+{% block title %}
+    Blog Home
+{% endblock %}
+
+{% block content %}
+
+<h1 class="list-title">投稿リスト</h1>
 <ul>
 {% for post in object_list %}
     <li><a href="{% url 'blog_detail' post.pk %}">{{ post.title }} - {{ post.author }}</a></li>
 {% endfor%}
 </ul>
+
+{% endblock %}
